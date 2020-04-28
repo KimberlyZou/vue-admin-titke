@@ -2,7 +2,7 @@ import request from '@/utils/request'
 
 export function fetchList(query) {
   return request({
-    url: '/vue-element-admin/article/list',
+    url: '/vue-element-admin/title/list',
     method: 'get',
     params: query
   })
@@ -37,5 +37,13 @@ export function updateArticle(data) {
     url: '/vue-element-admin/article/update',
     method: 'post',
     data
+  })
+}
+
+export function deleteArticle(id) {
+  return request({
+    url: '/vue-element-admin/title/delete',
+    method: 'post',
+    params: { id }
   })
 }

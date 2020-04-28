@@ -10,7 +10,7 @@ export function login(data) {
 
 export function register(data) {
   return request({
-    url: '/vue-element-admin/user/register',
+    url: '/vue-element-admin/normalUser/register',
     method: 'post',
     data
   })

@@ -138,7 +138,7 @@
 
 <script>
 import { mapGetters } from 'vuex'
-import { fetchList, fetchPv, createArticle, updateArticle } from '@/api/article'
+import { fetchList, fetchPv, createArticle, updateArticle, deleteArticle } from '@/api/article'
 import waves from '@/directive/waves' // waves directive
 import { parseTime } from '@/utils'
 import checkPermission from '@/utils/permission'
@@ -331,13 +331,15 @@ export default {
       })
     },
     handleDelete(row, index) {
-      this.$notify({
-        title: 'Success',
-        message: '删除成功',
-        type: 'success',
-        duration: 2000
+      deleteArticle(row.id).then(() => {
+        this.$notify({
+          title: 'Success',
+          message: '删除成功',
+          type: 'success',
+          duration: 2000
+        })
+        this.list.splice(index, 1)
       })
-      this.list.splice(index, 1)
     },
     handleFetchPv(pv) {
       fetchPv(pv).then(response => {

@@ -59,7 +59,7 @@ export default [
     }
   },
   {
-    url: '/vue-element-admin/user/register',
+    url: '/vue-element-admin/normalUser/register',
     type: 'post',
     response: config => {
       return {

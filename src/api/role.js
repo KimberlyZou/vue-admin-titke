@@ -46,7 +46,21 @@ export function getUserRole() {
 
 export function deleteUserRole(id) {
   return request({
-    url: `/vue-element-admin/role/user/${id}`,
+    url: `/vue-element-admin/collegeAdmin/deCollegeAdmin/${id}`,
+    method: 'delete'
+  })
+}
+
+export function deleteStudentRole(id) {
+  return request({
+    url: `/vue-element-admin/normalAdmin/deNormalAdmin/${id}`,
+    method: 'delete'
+  })
+}
+
+export function deleteAdminRole(id) {
+  return request({
+    url: `/vue-element-admin/sysAdmin/deSysAdmin/${id}`,
     method: 'delete'
   })
 }
@@ -61,7 +75,7 @@ export function updateUserRole(id, data) {
 
 export function addUserRole(data) {
   return request({
-    url: '/vue-element-admin/role/user',
+    url: '/vue-element-admin/collegeAdmin/CollegeAdmin',
     method: 'post',
     data
   })
