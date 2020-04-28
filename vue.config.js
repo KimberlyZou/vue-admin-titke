@@ -38,7 +38,7 @@ module.exports = {
     },
     // 需要注释
     before: require('./mock/mock-server.js')
-
+    // 需要解注释
     // proxy: {
     //   // change xxx-api/login => mock/login
     //   // detail: https://cli.vuejs.org/config/#devserver-proxy

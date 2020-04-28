@@ -25,7 +25,7 @@ const users = {
   'student-token': {
     roles: ['student'],
     introduction: '我是一名学生',
-    avatar: 'https://wpimg.wallstcn.com/f778738c-e4f8-4870-b634-56703b4acafe.gif',
+    // avatar: 'https://wpimg.wallstcn.com/f778738c-e4f8-4870-b634-56703b4acafe.gif',
     name: '一名学生',
     email: '34234@163.com',
     academy: '计算机',
