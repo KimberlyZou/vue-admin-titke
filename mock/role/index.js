@@ -52,19 +52,18 @@ export default [
 
   // mock get all roles form server
   {
-    url: '/vue-element-admin/role/user',
+    url: '/role/user',
     type: 'get',
     response: _ => {
       return {
-        code: 20000,
-        data: roles
+        roles
       }
     }
   },
 
   // add role
   {
-    url: '/vue-element-admin/collegeAdmin/addCollegeAdmin',
+    url: '/collegeAdmin/addCollegeAdmin',
     type: 'post',
     response: {
       code: 20000,
@@ -76,7 +75,7 @@ export default [
 
   // update role
   {
-    url: '/vue-element-admin/role/user/[A-Za-z0-9]',
+    url: '/role/user/[A-Za-z0-9]',
     type: 'put',
     response: {
       code: 20000,
@@ -88,7 +87,7 @@ export default [
 
   // delete role
   {
-    url: '/vue-element-admin/collegeAdmin/deCollegeAdmin/[A-Za-z0-9]',
+    url: '/collegeAdmin/deCollegeAdmin/[A-Za-z0-9]',
     type: 'delete',
     response: {
       code: 20000,

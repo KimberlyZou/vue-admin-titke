@@ -1,12 +1,12 @@
 <template>
   <div class="dashboard-editor-container">
     <div class=" clearfix">
-      <pan-thumb :image="avatar" style="float: left">
+      <pan-thumb image="https://wpimg.wallstcn.com/f778738c-e4f8-4870-b634-56703b4acafe.gif" style="float: left">
         Your roles:
         <span v-for="item in roles" :key="item" class="pan-info-roles">{{ item }}</span>
       </pan-thumb>
       <div class="info-container">
-        <span class="display_name">{{ name }}</span>
+        <span class="display_name">您是一名系学生</span>
         <span style="font-size:20px;padding-top:20px;display:inline-block;">学生面板</span>
       </div>
     </div>

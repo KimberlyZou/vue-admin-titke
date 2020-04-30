@@ -106,15 +106,14 @@ export default {
       formData.append('file', this.file)
       this.$store.dispatch('user/uploadExcel', formData)
         .then((res) => {
-          if(res.title){
-              this.$notify({
+          if (res.title) {
+            this.$notify({
               title: '查重失败',
               message: res.title,
               type: 'success',
               duration: 2000
             })
           }
-         
         })
         .catch(() => {
           alert('发送失败')

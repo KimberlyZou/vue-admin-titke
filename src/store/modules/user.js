@@ -21,6 +21,9 @@ const mutations = {
   SET_TOKEN: (state, token) => {
     state.token = token
   },
+  SET_UID: (state, uid) => {
+    state.uid = uid
+  },
   SET_INTRODUCTION: (state, introduction) => {
     state.introduction = introduction
   },
@@ -56,10 +59,15 @@ const actions = {
     const { email, password } = userInfo
     return new Promise((resolve, reject) => {
       login({ email: email.trim(), password: password }).then(response => {
-        const { data } = response
-        commit('SET_TOKEN', data.token)
-        setToken(data.token)
-        setUid(data.uid)
+        if (!response.token) {
+          reject('Verification failed, please Login again.')
+        }
+        commit('SET_TOKEN', response.token)
+        commit('SET_UID', response.uid)
+        console.log('token' + response.token)
+        console.log('uid' + response.uid)
+        setToken(response.token)
+        setUid(response.uid)
         resolve()
       }).catch(error => {
         reject(error)
@@ -85,29 +93,37 @@ const actions = {
     console.log(state)
     return new Promise((resolve, reject) => {
       getInfo(state.token, state.uid).then(response => {
-        const { data } = response
-
-        if (!data) {
-          reject('Verification failed, please Login again.')
-        }
-
-        const { roles, name, avatar, introduction, position, academy, university, email, userClass } = data
-
+        // if (!data) {
+        //   reject('Verification failed, please Login again.')
+        // }
+        console.log(1111111111111)
+        const role = response.role
+        const user = response.user
+        console.log(role)
+        // const data = response.user
         // roles must be a non-empty array
-        if (!roles || roles.length <= 0) {
+        response.roles = [role]
+        console.log(response)
+        console.log(22222)
+        if (!role) {
           reject('getInfo: roles must be a non-null array!')
         }
-
-        commit('SET_ROLES', roles)
-        commit('SET_NAME', name)
-        commit('SET_AVATAR', avatar)
-        commit('SET_INTRODUCTION', introduction)
-        commit('SET_EMAIL', email)
-        commit('SET_ACADEMY', academy)
-        commit('SET_POSITION', position)
-        commit('SET_UNIVERSITY', university)
-        commit('SET_USERCLASS', userClass)
-        resolve(data)
+        commit('SET_ROLES', response.roles)
+        commit('SET_NAME', user.userName)
+        if (user.email) {
+          commit('SET_EMAIL', user.email)
+        }
+        commit('SET_ACADEMY', user.academy)
+        if (user.position) {
+          commit('SET_POSITION', user.position)
+        }
+        if (user.university) {
+          commit('SET_UNIVERSITY', user.university)
+        }
+        if (user.userClass) {
+          commit('SET_USERCLASS', user.userClass)
+        }
+        resolve(response)
       }).catch(error => {
         reject(error)
       })

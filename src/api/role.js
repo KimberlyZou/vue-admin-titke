@@ -2,21 +2,21 @@ import request from '@/utils/request'
 
 export function getRoutes() {
   return request({
-    url: '/vue-element-admin/routes',
+    url: '/routes',
     method: 'get'
   })
 }
 
 export function getRoles() {
   return request({
-    url: '/vue-element-admin/roles',
+    url: '/roles',
     method: 'get'
   })
 }
 
 export function addRole(data) {
   return request({
-    url: '/vue-element-admin/role',
+    url: '/role',
     method: 'post',
     data
   })
@@ -24,7 +24,7 @@ export function addRole(data) {
 
 export function updateRole(id, data) {
   return request({
-    url: `/vue-element-admin/role/${id}`,
+    url: `/role/${id}`,
     method: 'put',
     data
   })
@@ -32,42 +32,42 @@ export function updateRole(id, data) {
 
 export function deleteRole(id) {
   return request({
-    url: `/vue-element-admin/role/${id}`,
+    url: `/role/${id}`,
     method: 'delete'
   })
 }
 
 export function getUserRole() {
   return request({
-    url: '/vue-element-admin/role/user',
+    url: '/role/user',
     method: 'get'
   })
 }
 
 export function deleteUserRole(id) {
   return request({
-    url: `/vue-element-admin/collegeAdmin/deCollegeAdmin/${id}`,
+    url: `/collegeAdmin/deCollegeAdmin/${id}`,
     method: 'delete'
   })
 }
 
 export function deleteStudentRole(id) {
   return request({
-    url: `/vue-element-admin/normalAdmin/deNormalAdmin/${id}`,
+    url: `/normalAdmin/deNormalAdmin/${id}`,
     method: 'delete'
   })
 }
 
 export function deleteAdminRole(id) {
   return request({
-    url: `/vue-element-admin/sysAdmin/deSysAdmin/${id}`,
+    url: `/sysAdmin/deSysAdmin/${id}`,
     method: 'delete'
   })
 }
 
 export function updateUserRole(id, data) {
   return request({
-    url: `/vue-element-admin/role/user/${id}`,
+    url: `/role/user/${id}`,
     method: 'put',
     data
   })
@@ -75,7 +75,7 @@ export function updateUserRole(id, data) {
 
 export function addUserRole(data) {
   return request({
-    url: '/vue-element-admin/collegeAdmin/CollegeAdmin',
+    url: '/collegeAdmin/CollegeAdmin',
     method: 'post',
     data
   })

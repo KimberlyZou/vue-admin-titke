@@ -38,7 +38,7 @@ const users = {
 export default [
   // user login
   {
-    url: '/vue-element-admin/user/login',
+    url: '/user/login',
     type: 'post',
     response: config => {
       const { email } = config.body
@@ -53,23 +53,23 @@ export default [
       }
 
       return {
-        code: 20000,
-        data: { token: token, uid: '1' }
+        token: token,
+        uid: '1'
       }
     }
   },
   {
-    url: '/vue-element-admin/normalUser/register',
+    url: '/normalUser/register',
     type: 'post',
     response: config => {
+      const body = config.body
       return {
-        code: 20000,
-        data: config.body
+        body
       }
     }
   },
   {
-    url: '/vue-element-admin/user/email',
+    url: '/user/email',
     type: 'post',
     response: config => {
       return {
@@ -81,7 +81,7 @@ export default [
 
   // get user info
   {
-    url: '/vue-element-admin/user/getInfo\.*',
+    url: '/user/getInfo\.*',
     type: 'get',
     response: config => {
       const { token } = config.query
@@ -96,15 +96,23 @@ export default [
       }
 
       return {
-        code: 20000,
-        data: info
+        role: 'admin',
+        user: {
+          introduction: '我是一名学生',
+          // avatar: 'https://wpimg.wallstcn.com/f778738c-e4f8-4870-b634-56703b4acafe.gif',
+          name: '一名学生',
+          email: '34234@163.com',
+          academy: '计算机',
+          university: '浙江大学',
+          userClass: '1801班'
+        }
       }
     }
   },
 
   // user logout
   {
-    url: '/vue-element-admin/user/logout',
+    url: '/user/logout',
     type: 'post',
     response: _ => {
       return {

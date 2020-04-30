@@ -113,7 +113,7 @@ const defaultUser = {
 }
 const rolesList = [
   { key: '2', display_name: '老师' },
-  { key: '1', display_name: '系统管理员' },
+  { key: '1', display_name: '系统管理员' }
 
 ]
 
@@ -146,7 +146,7 @@ export default {
     checkPermission,
     async getUserRoles() {
       const res = await getUserRole()
-      this.userList = res.data
+      this.userList = res.roles
     },
 
     handleAddUserRole() {
@@ -168,28 +168,28 @@ export default {
       })
         .then(async() => {
           console.log(row.role)
-          if(row.role === 'teacher'){
+          if (row.role === 'teacher') {
             await deleteUserRole(row.id)
             this.userList.splice($index, 1)
             this.$message({
               type: 'success',
               message: 'Delete succed!'
             })
-          }else if(row.role === 'admin'){
+          } else if (row.role === 'admin') {
             await deleteAdminRole(row.id)
             this.userList.splice($index, 1)
             this.$message({
               type: 'success',
               message: 'Delete succed!'
             })
-          }else if(row.role === 'student'){
+          } else if (row.role === 'student') {
             await deleteStudentRole(row.id)
             this.userList.splice($index, 1)
             this.$message({
               type: 'success',
               message: 'Delete succed!'
             })
-          }     
+          }
         })
         .catch(err => { console.error(err) })
     },

@@ -2,7 +2,7 @@ import request from '@/utils/request'
 
 export function login(data) {
   return request({
-    url: '/vue-element-admin/user/login',
+    url: '/user/login',
     method: 'post',
     data
   })
@@ -10,7 +10,7 @@ export function login(data) {
 
 export function register(data) {
   return request({
-    url: '/vue-element-admin/normalUser/register',
+    url: '/normalUser/register',
     method: 'post',
     data
   })
@@ -18,7 +18,7 @@ export function register(data) {
 
 export function registerEmail(data) {
   return request({
-    url: '/vue-element-admin/user/email',
+    url: '/user/email',
     method: 'post',
     data
   })
@@ -26,7 +26,7 @@ export function registerEmail(data) {
 
 export function getInfo(token, uid) {
   return request({
-    url: '/vue-element-admin/user/getInfo',
+    url: '/user/getInfo',
     method: 'get',
     params: { token, uid }
   })
@@ -34,7 +34,7 @@ export function getInfo(token, uid) {
 
 export function logout() {
   return request({
-    url: '/vue-element-admin/user/logout',
+    url: '/user/logout',
     method: 'post'
   })
 }
